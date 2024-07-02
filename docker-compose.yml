@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: react-vite-app # Specify the container name
+    build: . # Build the Docker image using the Dockerfile in the current directory
+    ports:
+      - "5173:5173" # Map host port 3000 to container port 3000
+    environment:
+      - NODE_ENV=development # Set NODE_ENV environment variable to 'development'
+    restart: always # Restart the container always if it stops

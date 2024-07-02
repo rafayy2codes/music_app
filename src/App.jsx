@@ -3,11 +3,11 @@ import Sidebar from './Components/Sidebar'
 import Player from './Components/Player'
 
 import Display from './Components/Display'
-import { Playercontext } from './Context/Playercontext'
+
 
 const App = () => {
 
-  const { audioRef } = useContext(Playercontext);
+
 
   return (
     <div className='h-screen bg-black'>
@@ -17,7 +17,7 @@ const App = () => {
         <Display />
       </div>
       <Player />
-      <audio ref={audioRef} preload='auto'></audio>
+
 
     </div>
   )

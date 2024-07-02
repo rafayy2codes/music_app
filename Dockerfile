@@ -1,21 +1,29 @@
-# Use a Node.js LTS (Long Term Support) version as the base image
-FROM node:lts
+# Use an official Node runtime as a parent image
+FROM node:latest
 
-# Set working directory inside the container
+# Set the working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json (if available) to work directory
-COPY package.json package.json 
-COPY package-lock.json package-lock.json
+# Install backend dependencies (if applicable)
+# COPY server/package*.json ./server/
+# RUN npm install --prefix server/
 
-# Install dependencies
+# Move to the client directory
+WORKDIR /app
+
+# Install frontend dependencies
+COPY package.json ./
+COPY package-lock.json ./
 RUN npm install
 
-# Copy the entire project directory to work directory
+# Copy the rest of the frontend code
 COPY . .
 
-# Expose the port that the application uses (usually 3000 for Vite development server)
+# Move back to the root directory
+WORKDIR /app
+
+# Expose the ports for the backend and frontend (if applicable)
 EXPOSE 5173
 
-# Command to run the application in development mode
+# Command to run the development server
 CMD ["npm", "run", "dev"]
