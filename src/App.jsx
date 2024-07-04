@@ -3,6 +3,7 @@ import Sidebar from './Components/Sidebar'
 import Player from './Components/Player'
 
 import Display from './Components/Display'
+import Chatbot from './Components/Chatbot'
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
         <Display />
       </div>
       <Player />
+      <Chatbot />
 
 
     </div>
